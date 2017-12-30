@@ -1,0 +1,17 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+	<div class="jumbotron text-center">
+    <h1>Welcome To The Daily Challenge</h1>
+    <p class="lead">Click on the buttons below to navigate.</p>
+    {% if session.logged_in == NULL %}
+	
+		<a href="/register" class="btn btn-primary btn-lg">Register</a>
+		<a href="/login" class="btn btn-success btn-lg">Login</a>
+		<a href="/" class="btn btn-primary btn-lg">How to Participate</a>
+		<a href="/" class="btn btn-primary btn-lg">Rewards</a>
+	
+    {% endif %}
+	</div>
+{% endblock %}

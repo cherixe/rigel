@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+			{% if title %}
+			<title>{{ title }} - Rigel's</title>
+			{% else %}
+			<title>microblog</title>
+			{% endif %}
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+	</head>
+  
+	<body>
+		
+		<hr><div>Navigation: 
+		<a href="/index">Home</a> | 
+		<a href="/about">About</a> | 
+		<a href="/articles">Articles</a> |
+		<a href="/register">Register</a></div>
+		
+		<div class="container">
+		{% include 'includes/_messages.html' %}
+		{% block body %}{% endblock %}
+	  <hr>
+		{% with messages = get_flashed_messages() %}
+		{% if messages %}
+		<ul>
+		{% for message in messages %}
+			<li>{{ message }} </li>
+		{% endfor %}
+		</ul>
+		{% endif %}
+		{% endwith %}
+		{% block content %}{% endblock %}
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+	</body>
+
+</html>
